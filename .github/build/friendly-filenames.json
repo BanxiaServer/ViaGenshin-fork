@@ -1,6 +1,4 @@
 {
-  "darwin-amd64": { "friendlyName": "darwin-amd64" },
-  "darwin-arm64": { "friendlyName": "darwin-arm64-v8a" },
   "linux-386": { "friendlyName": "linux-386" },
   "linux-amd64": { "friendlyName": "linux-amd64" },
   "linux-arm5": { "friendlyName": "linux-arm32-v5" },
