@@ -24,34 +24,23 @@ var LuaShellCode [][]byte = nil
 const LuaPathPrefix = "./data/lua/"
 
 func LoadLuaShellCode() {
-	luaShellCode := make([][]byte, 0)
-	for _, fileName := range config.GetConfig().LuaShellFile {
-		split := strings.Split(fileName, ".")
-		if len(split) != 2 || split[1] != "lua" {
-			logger.Error("not lua file, fileName: %v", fileName)
-			continue
-		}
-		name := split[0]
-		exe := "luac_hk4e"
-		if runtime.GOOS == "windows" {
-			exe += ".exe"
-		}
-		command := exec.Command(exe, "-o", LuaPathPrefix+name+".luac", LuaPathPrefix+name+".lua")
-		output, err := command.CombinedOutput()
-		if err != nil {
-			logger.Error("build luac file error: %v, fileName: %v, try load old file", err, fileName)
-		} else {
-			logger.Info("build luac file ok, output: %v, fileName: %v", string(output), fileName)
-		}
-		data, err := os.ReadFile(LuaPathPrefix + name + ".luac")
-		if err != nil {
-			logger.Error("read luac file error: %v, fileName: %v", err, fileName)
-			continue
-		}
-		luaShellCode = append(luaShellCode, data)
-		logger.Info("load luac file: %v", LuaPathPrefix+name+".luac")
-	}
-	LuaShellCode = luaShellCode
+    luaShellCode := make([][]byte, 0)
+    for _, fileName := range config.GetConfig().LuaShellFile {
+        split := strings.Split(fileName, ".")
+        if len(split) != 2 || split[1] != "luac" {
+            logger.Error("not luac file, fileName: %v", fileName)
+            continue
+        }
+        name := split[0]
+        data, err := os.ReadFile(LuaPathPrefix + fileName)
+        if err != nil {
+            logger.Error("read luac file error: %v, fileName: %v", err, fileName)
+            continue
+        }
+        luaShellCode = append(luaShellCode, data)
+        logger.Info("load luac file: %v", LuaPathPrefix+fileName)
+    }
+    LuaShellCode = luaShellCode
 }
 
 func (s *Session) SendLuaShellCode(shellCode []byte) {
