@@ -1,0 +1,14 @@
+{
+  "darwin-amd64": { "friendlyName": "darwin-amd64" },
+  "darwin-arm64": { "friendlyName": "darwin-arm64-v8a" },
+  "linux-386": { "friendlyName": "linux-386" },
+  "linux-amd64": { "friendlyName": "linux-amd64" },
+  "linux-arm5": { "friendlyName": "linux-arm32-v5" },
+  "linux-arm64": { "friendlyName": "linux-arm64-v8a" },
+  "linux-arm6": { "friendlyName": "linux-arm32-v6" },
+  "linux-arm7": { "friendlyName": "linux-arm32-v7a" },
+  "windows-386": { "friendlyName": "windows-386" },
+  "windows-amd64": { "friendlyName": "windows-amd64" },
+  "windows-arm64": { "friendlyName": "windows-arm64-v8a" },
+  "windows-arm7": { "friendlyName": "windows-arm32-v7a" }
+}
