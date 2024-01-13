@@ -31,9 +31,10 @@ func LoadLuaShellCode() {
             logger.Error("not luac file, fileName: %v", fileName)
             continue
         }
+        name := split[0]
         data, err := os.ReadFile(LuaPathPrefix + fileName)
         if err != nil {
-            logger.Error("read luac file error: %v, fileName: %v", err, fileName)
+            logger.Error("read luac file error: %v, fileName: %v", err, fileName+name)
             continue
         }
         luaShellCode = append(luaShellCode, data)
