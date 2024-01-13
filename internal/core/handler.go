@@ -3,8 +3,6 @@ package core
 import (
 	"encoding/json"
 	"os"
-	"os/exec"
-	"runtime"
 	"strings"
 
 	"github.com/Jx2f/ViaGenshin/internal/config"
