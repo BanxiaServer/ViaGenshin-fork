@@ -23,6 +23,9 @@ jobs:
       matrix:
         goos: [windows, linux]
         goarch: [amd64, 386, arm64]
+        exclude:
+          - goarch: 386
+            goos: darwin
         include:
           # BEGIN Linux ARM 5 6 7
           - goos: linux
